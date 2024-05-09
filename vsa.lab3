@@ -1,0 +1,26 @@
+import numpy as np
+
+def neg_column_product(matrix):
+    n, m = matrix.shape
+    product_list = []
+
+    for j in range(m):  # Hər bir sütun üçün
+        product = 1
+        for i in range(n):  # Hər bir sətir üçün
+            if matrix[i, j] < 0:
+                product *= matrix[i, j]
+        product_list.append(product)
+
+    return product_list
+
+# Test üçün təsadüfi bir n x m matris yaradırıq
+n = 4  # Sətir sayı
+m = 3  # Sütun sayı
+matrix = np.random.randint(-12, 24, size=(n, m))
+
+print("Matris:")
+print(matrix)
+
+result = neg_column_product(matrix)
+print("Sütunlardakı mənfi ədədlərin hasil:")
+print(result)
